@@ -14,6 +14,7 @@ public class Main {
 			this.setTitle("Mandelbrot Set");
 			this.add(new MandelbrotGenerator());
 			this.pack();
+			this.setResizable(false);
 			this.setVisible(true);
 		}	
 	}

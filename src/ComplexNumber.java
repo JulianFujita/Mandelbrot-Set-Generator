@@ -9,10 +9,17 @@ public class ComplexNumber{
 	     this.imaginary = imaginary;
 	 }
 	 
-	 public void add(double real, double imaginary){
-		 
-	     this.real += real;
-	     this.imaginary += imaginary;
+	 public double getReal() {
+		 return this.real;
+	 }
+	 
+	 public double getImaginary() {
+		 return this.imaginary;
+	 }
+	 
+	 public void add(ComplexNumber c) {
+		 this.real = c.real;
+		 this.imaginary = c.imaginary;
 	 }
 	 
 	 public void square(){
@@ -27,6 +34,11 @@ public class ComplexNumber{
 	     
 	     this.real = a - c;
 	     this.imaginary = b;
+	 }
+	 
+	 public void resetToZero() {
+		 this.real = 0;
+		 this.imaginary = 0;
 	 }
 	 
 	 
