@@ -7,33 +7,31 @@ import javax.swing.JPanel;
 
 public class MandelbrotGenerator extends JPanel{
 	
-	private final Color BACKGROUND_COLOR = Color.BLACK;
 	private final Dimension SIZE = new Dimension(800, 800);
 	private final int ITERATIONS = 100;
-	private final int LIMIT = 2;
-	private final double STEP = 0.01;
-	
+	private final int LIMIT = 4;
+	private final double STEP = 0.005;
+
 	private int currentX = 0;
 	private int currentY = SIZE.height;
 	
 	public MandelbrotGenerator() {
 		
 		this.setPreferredSize(SIZE);
-		this.setBackground(BACKGROUND_COLOR);
 	}
 
 	@Override
 	protected void paintComponent(Graphics g) {
 		
 		super.paintComponent(g);
-		g.setColor(Color.WHITE);
+		g.setColor(Color.BLACK);
 		ComplexNumber z = new ComplexNumber(0, 0);
 		
 		// For every x value
-		for(double x = -2; x <= 2; x += STEP) {
+		for(double x = -2.0; x < 2.0; x += STEP) {
 			
 			// For every i value
-			for(double i = -2; i <= 2; i += STEP) {
+			for(double i = -2.0; i < 2.0; i += STEP) {
 				
 				// For every specific point
 				ComplexNumber c = new ComplexNumber(x,  i);
@@ -44,8 +42,7 @@ public class MandelbrotGenerator extends JPanel{
 					z.square();
 					z.add(c);
 				}
-				
-				if(z.getReal() < LIMIT && z.getImaginary() < LIMIT) {
+				if(z.getReal() <= LIMIT && z.getImaginary() <= LIMIT) {
 					g.drawRect(currentX, currentY, 1, 1);
 				}
 				currentY--;
@@ -53,7 +50,9 @@ public class MandelbrotGenerator extends JPanel{
 			}
 			currentY = SIZE.height;
 			currentX++;
-		}
-		
+			System.out.println(currentX);
+		}	
+		currentX = 0;
+		currentY = SIZE.height;
 	}	
 }

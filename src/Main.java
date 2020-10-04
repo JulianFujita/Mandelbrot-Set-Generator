@@ -11,6 +11,7 @@ public class Main {
 		
 		public DrawingBoard() {
 			
+			this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 			this.setTitle("Mandelbrot Set");
 			this.add(new MandelbrotGenerator());
 			this.pack();

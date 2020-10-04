@@ -18,8 +18,8 @@ public class ComplexNumber{
 	 }
 	 
 	 public void add(ComplexNumber c) {
-		 this.real = c.real;
-		 this.imaginary = c.imaginary;
+		 this.real += c.real;
+		 this.imaginary += c.imaginary;
 	 }
 	 
 	 public void square(){
@@ -44,6 +44,9 @@ public class ComplexNumber{
 	 
 	 @Override
 	public String toString() {
+		 
+		 if(this.imaginary < 0)
+			 return this.real + " - " + -this.imaginary + "i";
 		return this.real + " + " + this.imaginary + "i";
 	}
 }
